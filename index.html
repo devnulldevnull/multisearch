@@ -2,17 +2,34 @@
 <html>
 <head>
     <title>Multi Search</title>
+    <style type="text/css">
+        code{background:#F8F8FF; border:black dashed 1px; padding:6px}​
+    </style>
 </head>
 <body>
-Hint: Allow popups for this page
+<div id="popups"></div>    
+To use the multi search, append URL parameters to the end like so:
+<br><br>
+<code>
+    https://multisearchtabs.github.io/?search1=Hello&amp;search2=There
+</code>
 
 <script type="text/javascript">
     window.onload = function(e){
+        if (window.location.search == "") {
+            var newWin = window.open('poptest.html');
+
+            if (!newWin || newWin.closed || typeof newWin.closed == 'undefined'){ 
+                document.getElementById("popups").innerHTML = "<strong>You must enable popups for this page</strong>";
+            }
+            return;
+        }
+
         var parts = window.location.search.substr(1).split("&");
         var get = [];
         for (var i = 0; i < parts.length; i++) {
             var temp = parts[i].split("=");
-            if (temp[1] !== undefined) {
+            if (typeof temp[1] != 'undefined') {
                 get.push(decodeURIComponent(temp[1]));
             }
         }
