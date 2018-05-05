@@ -8,18 +8,18 @@
 </head>
 <body>
 <div id="popups"></div>    
-To use the multi search, append URL parameters to the end like so:
+To use the multi search, first enable popups, then append URL parameters to the end like so:
 <br><br>
 <code>
     https://multisearchtabs.github.io/?search1=Hello&amp;search2=There
 </code>
 
 <script type="text/javascript">
-    window.onload = function(e){
+    window.onload = function(e) {
         if (window.location.search == "") {
             var newWin = window.open('poptest.html');
 
-            if (!newWin || newWin.closed || typeof newWin.closed == 'undefined'){ 
+            if (!newWin || newWin.closed || typeof newWin.closed == 'undefined') {
                 document.getElementById("popups").innerHTML = "<strong>You must enable popups for this page</strong>";
             }
             return;
