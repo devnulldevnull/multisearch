@@ -13,7 +13,8 @@ To use the multi search, first enable popups, then append URL parameters to the 
 <code>
     https://multisearchtabs.github.io/?search1=Hello&amp;search2=There
 </code>
-
+<br><br>
+To use bing, add "bing=" to the URL.
 <script type="text/javascript">
     var bing = false;
     window.onload = function(e) {
@@ -34,7 +35,7 @@ To use the multi search, first enable popups, then append URL parameters to the 
                 bing = true;
                 continue;
             }
-            
+
             if (typeof temp[1] != 'undefined') {
                 get.push(decodeURIComponent(temp[1]));
             }
